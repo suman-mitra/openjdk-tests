@@ -16,7 +16,7 @@
 	<test>
 		<testCaseName>elasticsearch_test</testCaseName>
         <command>docker run -v $(JDK_HOME):/java --name elasticsearch-test adoptopenjdk-elasticsearch-test:latest; \
-                         docker exec elasticsearch-test bash -c "mkdir /extract; find . -name "*TEST*.xml" -type f -exec cp {} /extract \; \
+                         docker exec elasticsearch-test bash -c "mkdir /extract; find . -name "*TEST*.xml" -type f -exec cp {} /extract \;" \
 			 docker cp elasticsearch-test:/extract $(REPORTDIR)/external_test_reports; \                  
                          docker rm  elasticsearch-test
 		$(TEST_STATUS)</command>
